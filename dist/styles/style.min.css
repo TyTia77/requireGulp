@@ -1,1 +1,2 @@
-canvas{height:600px;width:600px;background-color:blue}
+canvas{margin:0 auto;height:600px;width:600px;background-color:blue}
+body{background-color:grey;position:relative}body h1{color:white;text-align:center;text-transform:uppercase;font-size:50px}

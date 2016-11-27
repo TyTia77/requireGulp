@@ -18,10 +18,11 @@ gulp.task('buildjs', () => {
 
 gulp.task('buildcss', () => {
     return gulp
-        .src('style/**/*.+(js|css)')
+        .src('style/**/*.+(js|css|scss)')
+        .pipe(sass())
         .pipe(uglifycss({
             // "maxLineLen": 80,
-            "uglyComments": true
+            "uglyComments": false
         }))
         .pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
         .pipe(concat('style.min.css'))
@@ -29,7 +30,7 @@ gulp.task('buildcss', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch(['./style/*.scss', './style/*.css'], ['buildcss']);
+    gulp.watch(['./style/**/*.scss', './style/**/*.css'], ['buildcss']);
     gulp.watch([
         './js/**/*.js', './es6/*.js'
     ], ['buildjs']);
